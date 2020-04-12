@@ -18,6 +18,7 @@ Modified OpenWRT ( Apparently)
 
 # MTD Partitions:
 dev:    size   erasesize  name
+
 mtd0: 00080000 00020000 "spl"
 
 mtd1: 000c0000 00020000 "uboot1"
