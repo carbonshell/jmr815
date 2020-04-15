@@ -3,8 +3,11 @@ Jio Mobile Hotspot Device : JMR 815
 Device offered by Jio , runs on 4G LTE network. Provides access to VoLTE using its official android app.
 
 Board            : ALT3800 Ver: 0.16 (CPU Speed 396.500 MHz)
+
 DRAM             : 128 MiB (LPDDR, 16-bit, 199.333 MHz, FM61D2G1GA)
+
 Bootloader       : U-Boot 2012.10-svn3034 (Sep 29 2017 - 15:40:21)
+
 Wireless driver  : rtl8192es
 
 # MTD Partitions:
