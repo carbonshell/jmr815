@@ -1,20 +1,11 @@
 # JMR 815
 Jio Mobile Hotspot Device : JMR 815
+Device offered by Jio , runs on 4G LTE network. Provides access to VoLTE using its official android app.
 
-Device offered by Jio , runs on 4G LTE network. Provides access to VoLTE using its official app.
-
-# Board: ALT3800 Ver: 0.16 (CPU Speed 396.500 MHz)
-# DRAM:  128 MiB (LPDDR, 16-bit, 199.333 MHz, FM61D2G1GA)
-
-
-# Bootloader:
-U-Boot 2012.10-svn3034 (Sep 29 2017 - 15:40:21)
-
-# Wireless driver:
-rtl8192es
-
-# OS:
-Modified OpenWRT ( Apparently)
+Board            : ALT3800 Ver: 0.16 (CPU Speed 396.500 MHz)
+DRAM             : 128 MiB (LPDDR, 16-bit, 199.333 MHz, FM61D2G1GA)
+Bootloader       : U-Boot 2012.10-svn3034 (Sep 29 2017 - 15:40:21)
+Wireless driver  : rtl8192es
 
 # MTD Partitions:
 dev:    size   erasesize  name
@@ -51,16 +42,23 @@ mtd14: 00a00000 00020000 "ua"
 
 mtd15: 09000000 00020000 "tstorage"
 
+
 # Debugging:
-Either using telnet or dropbear. Device provides a USB Ethernet if connected via USB. init.d scripts are available to start telnetd as a service.
+Either using telnet or dropbear. Device provides a USB Ethernet if connected via USB. UART TTL level 3.3v
 
-# Beware:
-Device resets configuration files if the word length does not match with the default backup of the said configuration.
+# Modification:
 
-Min Configuration required to initiate the Wireless at wlan0 without which wireless interface is not initiated (needs more debugging)
+So far the only moification that has been done is forcing it into 40Mhz bandwidth effectively doubling the WiFi link speed.
 
-# Fun things:
-Device can be forced into 40Mhz bandwidth effectively doubling the WiFi link speed. Without any special modification.
+The OS seems to be a heavily modified version of OpenWRT. Complex initialisation process and scripts revert changes made to the settings. Checks the word length and replaces with default configuration if settings are changed.
+
+Managed to disable configuration of wifi script by disabling lines in the Validation script in /etc/init.d/ Forcing custom wifi settings. 
+
+Device creates a Bridge device br0 that is bind to usb0 and wlan0 assigning IP addresses in the range of 192.168.15.1/24
+
+
+# Help needed to understand and follow the configuration files to disable few automatic changes, to use device as a router without the LTE network. Feel free to contact me if you would like to assist and have a look at the files. Will upload the dump of the MTD partitions and configuration one by one. 
+
 
 # TODO :
 1. Manage to get WiFi STA working. 
