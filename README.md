@@ -51,24 +51,6 @@ Either using telnet or dropbear. Device provides a USB Ethernet if connected via
 
 # Modification:
 
-So far the only moification that has been done is forcing it into 40Mhz bandwidth effectively doubling the WiFi link speed.
-
 The OS seems to be a heavily modified version of OpenWRT. Complex initialisation process and scripts revert changes made to the settings. Checks the word length and replaces with default configuration if settings are changed.
 
-Managed to disable configuration of wifi script by disabling lines in the Validation script in /etc/init.d/ Forcing custom wifi settings. 
-
 Device creates a Bridge device br0 that is bind to usb0 and wlan0 assigning IP addresses in the range of 192.168.15.1/24
-
-
-# Help needed to understand and follow the configuration files to disable few automatic changes, to use device as a router without the LTE network. Feel free to contact me if you would like to assist and have a look at the files. Will upload the dump of the MTD partitions and configuration one by one. 
-
-
-# TODO :
-1. Manage to get WiFi STA working. 
-2. USB Ethernet as DHCP client
-3. Extract LTE firmware and/or document communication using AT Codes
-4. Build a pure OpenWRT image for the device with the latest code.
-5. Modify U-Boot with the latest code. 
-6. Use the keys and credentials inside the device to download firmware image from Jio
-
-
